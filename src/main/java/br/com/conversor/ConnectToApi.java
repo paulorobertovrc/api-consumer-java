@@ -8,14 +8,9 @@ public class ConnectToApi {
 	private String urlString = "";
 	private URL url;
 
-	ConnectToApi(int currency) throws IOException {
+	ConnectToApi(String userChoice) throws IOException {
 		// Consume public API
-		if (currency == 1) {
-			urlString = "https://economia.awesomeapi.com.br/json/USD-BRL";
-		} else {
-			urlString = "https://economia.awesomeapi.com.br/json/EUR-BRL";
-		}
-		
+		urlString = "https://economia.awesomeapi.com.br/json/" + userChoice + "-BRL";		
 		url = new URL(urlString);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
