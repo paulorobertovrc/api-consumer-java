@@ -43,7 +43,12 @@ public class Currency {
 	}
 	
 	public JSONObject generateJson(StringBuilder s) throws ParseException {
-		// Convert the returned values to JSON object 
+		// Convert the returned values to JSON object
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		JSONParser jParser = new JSONParser();
 		JSONArray jArray = (JSONArray) jParser.parse(String.valueOf(s));
 		JSONObject jObj = (JSONObject) jArray.get(0);

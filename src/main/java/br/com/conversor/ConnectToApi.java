@@ -10,11 +10,17 @@ public class ConnectToApi {
 
 	ConnectToApi(String userChoice) throws IOException {
 		// Consume public API
-		urlString = "https://economia.awesomeapi.com.br/json/" + userChoice + "-BRL";		
-		url = new URL(urlString);
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.connect();
+		urlString = "https://economia.awesomeapi.com.br/json/" + userChoice + "-BRL";
+
+		try {
+			url = new URL(urlString);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+			conn.setRequestMethod("GET");
+			conn.connect();			
+		} catch (Exception e) {
+			System.out.println("Please verify your connection and try again. If the problem persists, contact the system administrator.");
+		}
 	}
 	
 	public URL getUrl() {
